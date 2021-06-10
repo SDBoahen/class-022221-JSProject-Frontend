@@ -15,24 +15,33 @@ class Actor{
     ////  similar to  (@@all)
 
 
-    constructor(name, imageURL, knownForSaying){
+    constructor(name, imageURL){
 
-            this.name = name,
-            this.image = imageURL,
-                this.catchPhrase = knownForSaying
+        this.name = name,
+        this.image = imageURL,
 
         Actor.all.push(this)
         //  Actor.all[]  <<  this  ~  @actor
 
     }
+        // constructor(name, imageURL, knownForSaying){
+
+        //         this.name = name,
+        //         this.image = imageURL,
+        //             this.catchPhrase = knownForSaying
+
+        //     Actor.all.push(this)
+        //     //  Actor.all[]  <<  this  ~  @actor
+
+        // }
 
     
     //  DON'T need the Function Syntax for
-    sayCatchPhrase(){ 
+        // sayCatchPhrase(){ 
+            
+        //     console.log(`${this.catchPhrase}`) 
         
-        console.log(`${this.catchPhrase}`) 
-    
-    }
+        // }
     //sayCatchPhrase(){ console.log(`${this.catchPhrase}`) }
     // this.catchPhrase = function(){ console.log(`${knownForSaying}`) }
 
@@ -40,10 +49,13 @@ class Actor{
 
 
 }
-const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512", 
-    "WE, ARE,, LIVE!")
-const jass = new Actor("Jass", "Jass", 
-"-hehe-")
+
+const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512")
+const jass = new Actor("Jass", "Jass")
+// const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512", 
+//     "WE, ARE,, LIVE!")
+// const jass = new Actor("Jass", "Jass", 
+// "-hehe-")
 
     // const * = new Actor("", "", 
     // "")
