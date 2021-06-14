@@ -48,96 +48,53 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
 
 
 
+        const renderAllActors =(actorArray)=> {
+  
+  
+            actorArray.forEach(actor => { 
 
+                const newActor = new Actor(actor)
+                    // const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512")
+                    
+                    console.log("✨📇✨  >>", newActor)
 
+                newActor.renderActor(actor) 
+        
+            })
+                ////  renderToy(actor) 
 
+                ////  Using a (ForOfLoop)
+                // for(let actor of actorArray){
+        
+                //   renderToy(actor)
+                    
+                // }
+  
 
+        }
+            // function renderAllToys(actorArray){
 
-
-
-
-
-
-
-    //   ***  MOVE THIS DOWN  ***
-
-    const renderToy =(toyObj)=> {
-        // Creating a Display in a Card for each Toy
-  
-  
-        // Create the Outer Wrapping/Containing Element 
-        ////  - In this case a <div>
-        const cardDiv = document.createElement("div")
-  
-        // Assigning any classes etc to it
-        ////  - In this case: class="card"
-        cardDiv.classList.add("card")
-          cardDiv.setAttribute("data-id", toyObj.id)
-          cardDiv.id = toyObj.id
-  
-        // use innerHTML to create the inner elements
-        cardDiv.innerHTML = `
-  
-            <h2 id="lesseeee" data-id="${toyObj.id}">${toyObj.name}</h2>
-            <img src=${toyObj.image} class="toy-avatar" />
-            🙌<p> ${toyObj.likes} Cheers </p>🙌 
-            <button data-id="${toyObj.id}" class="like-btn">✨🙌👏CHEER!👏🙌✨</button>
-            <button data-id="${toyObj.id}" class="edit-btn"> 🎭EDIT THIS ACTOR🎩 </button>
-            <button data-id="${toyObj.id}" class="delete-btn"> DELETE🚁💫🚂? </button>
-  
-            `
-  
-            //  ***  SHOW HOW TO ADJUST SIZING  ***  //
-            //  ***  SHOW THIS WITH CREATE ELEMENT  *** //
-
-
-        // SSSlap it on the DOM (toy-collection)
-
-
-            // cardDiv.innerText = `<p> Tsam </p>`
-            //     console.log(cardDiv)
-            // cardDiv.innerHTML = `<p> HSAM </p>`
-            //     console.log(cardDiv)
-            
-
-        const collectionDiv = document.querySelector("#toy-collection")
-        collectionDiv.append(cardDiv)
-  
-  
-      }
-      const renderAllToys =(toyArray)=> {
-  
-  
-        toyArray.forEach(toyObj => { renderToy(toyObj) } )
-  
-        ////  Using a (ForOfLoop)
-          // for(let toyObj of toyArray){
-  
-          //   renderToy(toyObj)
-            
-          // }
-  
-  
-      }
-  
-  
-  
-  
-  
-  
+            //     /* */
+            // }
   
   
   
     //=====  BASIC GET FETCH PROCESS  ========
   
-  
-    fetch(API_DATABASE_URL).then(response => response.json())
-    .then(fetchedArray => { console.log(fetchedArray);
+    
+        // API_FOR_ACTORS.fetchAllOurActors()
+        // API_FOR_ACTORS.fetchAllOurActors()
+
+        API.fetchAllOurActors()
+
+
+    // fetch(API_DATABASE_URL).then(response => response.json())
+    // .then(fetchedArray => { console.log(fetchedArray);
       
-      renderAllToys(fetchedArray)
-      // fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
+    //   renderAllActors(fetchedArray)
+    //   // fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
   
-    })  //// !!  ////  (fetchedArray => { 
+    // })
     ////  .then(console.log)  //
   
   
@@ -189,21 +146,23 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
               console.log("SHOW ME SUBMIT - IN THE FORM:  ", submit)
               ////  This will ONLY show up upon hitting  The "SUBMIT" Button
   
-  
+
           fetch(API_DATABASE_URL, {
         
             method: "POST",
             headers: { "Content-Type": "application/json"},
-            body: JSON.stringify({ 
-              "name": name,
-              "image": image,
-              "likes": 222
-              /* WHAT WE ARE POSTING */
+            body: JSON.stringify({
+
+                  "name": name,
+                  "image": image,
+                  "likes": 222
+                  /* WHAT WE ARE POSTING */
+                    
             })
         
           })
           .then(response => response.json())
-          .then(theThingWePostedButFromTheServer => renderToy(theThingWePostedButFromTheServer) )
+          .then(theThingWePostedButFromTheServer => Actor.renderToy(theThingWePostedButFromTheServer) )
           //.then(theThingWePosted => console.log("Hey! This is what we posted 📋🤓👍:  ", theThingWePosted))  //
   
 
@@ -488,3 +447,23 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
 
 
 // document.addEventListener("DOMContentLoaded", function(){ console.log("WE, ARE,, LIVE🙆🏾‍♂️✨") })
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ////////  Just An innerText -VS- innerHTML Example
+            //
+            // cardDiv.innerText = `<p> Tsam </p>`
+            //     console.log(cardDiv)
+            // cardDiv.innerHTML = `<p> HSAM </p>`
+            //     console.log(cardDiv)
+            ////////
