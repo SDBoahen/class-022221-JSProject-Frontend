@@ -4,15 +4,11 @@
     ////  'Listen To TheDOM🌌🧘🌠👁✨'
 
 
-
-
-
-
-
 // Initially showTheForm === false 
 let showTheForm = false;
 
-const API_DATABASE_URL = "http://localhost:3000/toys"
+
+// const API_DATABASE_URL = "http://localhost:3000/toys"
 //   console.log("Hey! This is our Toy Database URL ->", API_DATABASE_URL)
 
 
@@ -45,47 +41,42 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
     });  //   *** LAGGING ON FIRST CLICK
 
 
+    API.fetchAllOurActors()
+      // API.fetchAllOurPets()
+    API.fetchAllOurProps()
 
 
 
-        const renderAllActors =(actorArray)=> {
-  
-  
-            actorArray.forEach(actor => { 
 
-                const newActor = new Actor(actor)
-                    // const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512")
-                    
-                    console.log("✨📇✨  >>", newActor)
-
-                newActor.renderActor(actor) 
         
-            })
-                ////  renderToy(actor) 
-
-                ////  Using a (ForOfLoop)
-                // for(let actor of actorArray){
-        
-                //   renderToy(actor)
-                    
-                // }
-  
-
-        }
             // function renderAllToys(actorArray){
 
             //     /* */
             // }
   
   
+
+
+
+
+
+
+
+
+
+
   
     //=====  BASIC GET FETCH PROCESS  ========
   
     
-        // API_FOR_ACTORS.fetchAllOurActors()
-        // API_FOR_ACTORS.fetchAllOurActors()
+    
+      // API.fetchAllOurActors()
+      // API
+      
+      // API_FOR_ACTORS.fetchAllOurActors()
+      // API_FOR_ACTORS.fetchAllOurActors()
 
-        API.fetchAllOurActors()
+
 
 
     // fetch(API_DATABASE_URL).then(response => response.json())
@@ -122,6 +113,16 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
   
   
   
+
+
+
+
+
+
+
+
+
+
   
   
   

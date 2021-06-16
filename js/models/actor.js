@@ -18,7 +18,8 @@ class Actor{
     //  This is What We Use When We Do:   { * } = new Actor({*})
     constructor({id, name, image, likes}){
     // constructor({name, image, likes}){
-                //  With Destructuring 
+        //  With Destructuring 
+        //  * * * *  ATTRIBUTES SHOULD BE PASSEED IN THE SAME ORDER AS IN JSON DATA/TABLE/ECT--
                 //   ***  Show Without Passing in a Whole Object  ***
                     //    Without Destructuring 
                     ////  constructor(name, image, likes){
@@ -51,7 +52,7 @@ class Actor{
             🙌<p> ${this.likes} Cheers </p>🙌 
             <button data-id="${this.id}" class="like-btn">✨🙌👏CHEER!👏🙌✨</button>
             <button data-id="${this.id}" class="edit-btn"> 🎭EDIT THIS ACTOR🎩 </button>
-            <button data-id="${this.id}" class="delete-btn"> DELETE🚁💫🚂? </button>
+            <button data-id="${this.id}" class="delete-btn"> DELETE?🚁💫🚂 </button>
   
             `
     
@@ -79,7 +80,8 @@ class Actor{
         // cardDiv.innerHTML = makeACard(actor)
         
         
-        const collectionDiv = document.querySelector("#toy-collection")
+        const collectionDiv = document.querySelector("#back-stage")
+        // *** TRY OUT AS STATIC *** //
         collectionDiv.append(cardDiv)
         // SSSlap it on the DOM (toy-collection)
         
@@ -254,3 +256,47 @@ class Actor{
 
 
 // // --------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const renderAllActors =(actorArray)=> {
+  
+  
+        //     actorArray.forEach(actor => { 
+
+        //         const newActor = new Actor(actor)
+        //             // const sam = new Actor("Sam", "https://ca.slack-edge.com/T02MD9XTF-U018W9H54N6-6bb69b64ec24-512")
+                    
+        //             console.log("✨📇✨  >>", newActor)
+
+        //         newActor.renderActor(actor) 
+        
+        //     })
+        //         ////  renderToy(actor) 
+
+        //         ////  Using a (ForOfLoop)
+        //         // for(let actor of actorArray){
+        
+        //         //   renderToy(actor)
+                    
+        //         // }
+  
+
+// }
