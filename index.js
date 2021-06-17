@@ -42,10 +42,15 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
 
 
     API.fetchAllOurActors()
-      // API.fetchAllOurPets()
+      ////   API.fetchAllOurPets()
     API.fetchAllOurProps()
+      // API.fetchMyProps()
 
 
+
+
+      // API_FOR_ACTORS.fetchAllOurActors()
+      // API_FOR_PROPS.fetchAllOurProps()
 
 
         
@@ -65,50 +70,6 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
 
 
 
-  
-    //=====  BASIC GET FETCH PROCESS  ========
-  
-    
-    
-      // API.fetchAllOurActors()
-      // API
-      
-      // API_FOR_ACTORS.fetchAllOurActors()
-      // API_FOR_ACTORS.fetchAllOurActors()
-
-
-
-
-    // fetch(API_DATABASE_URL).then(response => response.json())
-    // .then(fetchedArray => { console.log(fetchedArray);
-      
-    //   renderAllActors(fetchedArray)
-    //   // fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
-  
-    // })
-    ////  .then(console.log)  //
-  
-  
-    // console.log(">>>>>>>>>>>", fetchedArray)
-    // WE DON'T HAVE ACCESS OUTSIDE OF FETCH  :(
-  
-  
-    // fetch(API_DATABASE_URL).then(response => response.json())
-    // .then(console.log)
-    // // .then(whatWeFetched => {console.log(whatWeFetched)} ) // What We Are Going to Decide to Do With The Data  
-  
-  
-    // fetch(API_DATABASE_URL).then(response => response.json())
-    // .then(fetchedArray => { 
-      
-    //   fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
-  
-    // })  //// !!  ////  (fetchedArray => { 
-    // // //then(console.log)  //
-  
-  
-    //=====  BASIC GET FETCH PROCESS  ========
-  
   
   
   
@@ -192,12 +153,6 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
   
       const cardsCollection = document.querySelector("#toy-collection")
         //  console.log(cardsCollection)  //// ***
-  
-  
-  
-  
-  
-  
   
   
       //  *** ?? *** ASK *** Why Not Submit
@@ -447,12 +402,37 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // document.addEventListener("DOMContentLoaded", function(){ console.log("WE, ARE,, LIVE🙆🏾‍♂️✨") })
-
-
-
-
-
 
 
 
@@ -468,3 +448,51 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
             // cardDiv.innerHTML = `<p> HSAM </p>`
             //     console.log(cardDiv)
             ////////
+
+
+
+
+
+
+
+  
+//=====  BASIC GET FETCH PROCESS  ========
+
+
+// fetch(API_DATABASE_URL).then(response => response.json())
+// .then(fetchedArray => { console.log(fetchedArray);
+  
+//   renderAllActors(fetchedArray)
+//   // fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
+
+// })
+////  .then(console.log)  //
+
+
+// console.log(">>>>>>>>>>>", fetchedArray)
+// WE DON'T HAVE ACCESS OUTSIDE OF FETCH  :(
+
+
+// fetch(API_DATABASE_URL).then(response => response.json())
+// .then(console.log)
+// // .then(whatWeFetched => {console.log(whatWeFetched)} ) // What We Are Going to Decide to Do With The Data  
+
+
+// fetch(API_DATABASE_URL).then(response => response.json())
+// .then(fetchedArray => { 
+  
+//   fetchedArray.forEach(arrayObj => console.log(arrayObj) ) 
+
+// })  //// !!  ////  (fetchedArray => { 
+// // //then(console.log)  //
+
+
+//=====  BASIC GET FETCH PROCESS  ========
+  
+
+
+
+
+
+
+

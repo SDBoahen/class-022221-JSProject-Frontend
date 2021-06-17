@@ -13,10 +13,10 @@ class API {
 
 
     // X const function X
-    static API_DATABASE_URL = "http://localhost:3000/actors"
+    static API_ACTOR_TABLE_URL = "http://localhost:3000/actors"
     static fetchAllOurActors(){
 
-        fetch(this.API_DATABASE_URL).then(response => response.json())
+        fetch(this.API_ACTOR_TABLE_URL).then(response => response.json())
         .then(fetchedArray => { console.log(fetchedArray);
           
           fetchedArray.forEach(actor => {  console.log(actor) 
@@ -51,6 +51,8 @@ class API {
             
             const newProp = new Prop(prop)
             newProp.renderProp(prop)
+
+            Prop.all.push(newProp)
           
           }) 
       
@@ -59,15 +61,23 @@ class API {
       }
         static fetchMyProps(){
 
-          fetch(this.API_PROP_TABLE_URL).then(response => response.json())
+          // TEMP - Hard Coded (ids)
+          const samsID = 1
+          const corinnasID = 2
+ 
+          fetch(`${this.API_ACTOR_TABLE_URL}/${corinnasID}/props`).then(response => response.json())
           .then(fetchedArray => { console.log(fetchedArray);
-            
+        
+            const collectionDiv = document.querySelector("#the-prop-room")
+                  collectionDiv.innerHTML = ""
+                  //  Clearing that Section of the DOM🙃🕳💫😲
+
             fetchedArray.forEach(prop => {  console.log(prop) 
               
               const newProp = new Prop(prop)
               newProp.renderProp(prop)
             
-            }) 
+          }) 
         
           }) // * * * *  THE FINAL COUNTDOWN  * * * * //
 

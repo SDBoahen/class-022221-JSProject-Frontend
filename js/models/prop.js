@@ -19,7 +19,9 @@ class Prop{
         this.currently_with = currently_with,
         this.actorID = actorID
 
-        Prop.all.push(this)
+        // COMMENTED OUT BECAUSE:
+        ////  We Use Our Class Constructor for Any Creation of a Frontend Instance of an Object of this Class 
+        // Prop.all.push(this)
 
     }
 
@@ -28,11 +30,13 @@ class Prop{
     makeACard =()=>{ console.log(this)
         
         return `
-    
+            <br><br>
+            ----------------
             <h2 id="lesseeee" data-id="${this.id}" data-owner="${this.actorID}">${this.name}</h2>
             <img src=${this.image} class="toy-avatar" />
             <h2 id="lesseeee" data-id="${this.id}">Currently With: ${this.currently_with}</h2>            
-    
+            ----------------
+            <br><br>
             `
             // <h2 id="lesseeee" data-id="${this.id}">${this.toy.name}</h2>
             // <h2 id="lesseeee" data-id="${this.id}">${this.name}</h2>
@@ -40,30 +44,22 @@ class Prop{
     renderProp =(prop)=> {  // Creating a Display in a Card for each prop
     
 
-        // Create the Outer Wrapping/Containing Element 
-        ////  - In this case an empty <div></div>
         const cardDiv = document.createElement("div")
-    
-        // Assigning any classes etc to it
-        ////  - In this case: class="card"
+
+
         cardDiv.classList.add("card")
-            //  Adding a (class=) to  (cardDiv)
-            ////  <div class="card"><div>
+
             cardDiv.setAttribute("data-id", prop.id)
-            // Addind an (id=) to (cardDiv)
-            ////  <div class="card" id={prop.id}><div>
+
             cardDiv.id = prop.id
 
             cardDiv.innerHTML = this.makeACard()
+        
+        const collectionDiv = document.querySelector("#the-prop-room")
+        // *** TRY OUT AS STATIC - Variable *** //
 
-        // use innerHTML to create the inner elements
-        // cardDiv.innerHTML = makeACard(prop)
-        
-        
-        const collectionDiv = document.querySelector("#back-stage")
-        // *** TRY OUT AS STATIC *** //
+
         collectionDiv.append(cardDiv)
-
         
         
     } 

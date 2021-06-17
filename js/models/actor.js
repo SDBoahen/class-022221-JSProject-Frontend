@@ -41,14 +41,13 @@ class Actor{
 
 
 
-
     // WE DON'T NEED INSIDE OF A CLASS  -->  //const  NOR  function
     makeACard =()=>{ console.log(this)
         
         return `
   
             <h2 id="lesseeee" data-id="${this.id}">${this.name}</h2>
-            <img src=${this.image} class="toy-avatar" />
+            <img src=${this.image} class="actor-icon" />
             🙌<p> ${this.likes} Cheers </p>🙌 
             <button data-id="${this.id}" class="like-btn">✨🙌👏CHEER!👏🙌✨</button>
             <button data-id="${this.id}" class="edit-btn"> 🎭EDIT THIS ACTOR🎩 </button>
@@ -74,12 +73,26 @@ class Actor{
           ////  <div class="card" id={actor.id}><div>
           cardDiv.id = actor.id
 
-            cardDiv.innerHTML = this.makeACard()
+        // Setting the InnerHTML for the (cardDiv)
+        ////  Actually Creates the Inner Elements/Tags  
+        cardDiv.innerHTML = this.makeACard()
+        
 
-        // use innerHTML to create the inner elements
-        // cardDiv.innerHTML = makeACard(actor)
+
+
+        cardDiv.addEventListener("click", (event) => { 
+            console.log("🧐✨🕶😲Ooooooooh,Classy!😎👓😉✨    >>>>  ", event.target)
+
+            if(event.target.className === "actor-icon"){
+                console.log("With  (===)  ", event.target) }
+            if(event.target.matches("img")){ 
+                console.log("With  (.matches)  ", event.target) }
+
+        })
+
         
-        
+
+
         const collectionDiv = document.querySelector("#back-stage")
         // *** TRY OUT AS STATIC *** //
         collectionDiv.append(cardDiv)
@@ -92,27 +105,6 @@ class Actor{
 
 
 
-
-        // constructor(name, imageURL, knownForSaying){
-
-        //         this.name = name,
-        //         this.image = imageURL,
-        //             this.catchPhrase = knownForSaying
-
-        //     Actor.all.push(this)
-        //     //  Actor.all[]  <<  this  ~  @actor
-
-        // }
-
-    
-        //  DON'T need the Function Syntax for
-        // sayCatchPhrase(){ 
-            
-        //     console.log(`${this.catchPhrase}`) 
-        
-        // }
-    //sayCatchPhrase(){ console.log(`${this.catchPhrase}`) }
-    // this.catchPhrase = function(){ console.log(`${knownForSaying}`) }
 
 
 
@@ -264,6 +256,32 @@ class Actor{
 
 
 
+
+
+
+
+
+
+        // constructor(name, imageURL, knownForSaying){
+
+        //         this.name = name,
+        //         this.image = imageURL,
+        //             this.catchPhrase = knownForSaying
+
+        //     Actor.all.push(this)
+        //     //  Actor.all[]  <<  this  ~  @actor
+
+        // }
+
+    
+        //  DON'T need the Function Syntax for
+        // sayCatchPhrase(){ 
+            
+        //     console.log(`${this.catchPhrase}`) 
+        
+        // }
+    //sayCatchPhrase(){ console.log(`${this.catchPhrase}`) }
+    // this.catchPhrase = function(){ console.log(`${knownForSaying}`) }
 
 
 
