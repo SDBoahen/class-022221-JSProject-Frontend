@@ -88,6 +88,55 @@ class Actor{
             if(event.target.matches("img")){ 
                 console.log("With  (.matches)  ", event.target) }
 
+            if(event.target.matches(".edit-btn")){
+
+                const editFormClassyTho = document.createElement("form")
+                    editFormClassyTho.innerHTML = `
+            
+                        <br><br>
+                        <h2>Editing This Actor In a Class!✨:</h2>
+                        <form class="name-change-form">
+
+                        <br>
+                        <button class="close-button">✖️CLOSE✖️THE✖️EDIT✖️FORM✖️</button>
+                        <br>
+
+                        <h4>Name:</h4>
+                        <input
+                        type="text"
+                        name="name"
+                        value="${cardDiv.querySelector("h2").innerText}"
+                        placeholder="${cardDiv.querySelector("h2").innerText}"
+                        class="input-text-name"
+                        />        
+                          <br />
+                        <h4>Image URL:</h4>
+                        <input
+                        type="text"
+                        name="image"
+                        value="${cardDiv.querySelector("img").src}"
+                        placeholder="${cardDiv.querySelector("img").src}"
+                        class="input-text-image"
+                        />        
+                          <br />
+                        <input
+                        type="submit"
+                        name="submit"
+                        value="Update Actor Name!!!!"
+                        class="submit-button"
+                        />
+                        </form>
+                        <br><br><br><br>
+
+                        `
+                      console.log(editFormClassyTho)  //
+
+                    cardDiv.append(editFormClassyTho)
+                      console.log(">>>>>>>>", cardDiv)  //
+
+
+            }
+
         })
 
         

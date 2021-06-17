@@ -8,8 +8,8 @@
 let showTheForm = false;
 
 
-// const API_DATABASE_URL = "http://localhost:3000/toys"
-//   console.log("Hey! This is our Toy Database URL ->", API_DATABASE_URL)
+const API_DATABASE_URL = "http://localhost:3000/actors"
+  console.log("Hey! This is our (Actor) Database URL - In (index.js) ->", API_DATABASE_URL)
 
 
 
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
     API.fetchAllOurActors()
       ////   API.fetchAllOurPets()
     API.fetchAllOurProps()
-      // API.fetchMyProps()
+      API.fetchMyProps()
 
 
 
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
     //========  DELETE + EDIT FETCH (Based on Buttons)  ========
   
   
-      const cardsCollection = document.querySelector("#toy-collection")
+      const cardsCollection = document.querySelector("#back-stage")
         //  console.log(cardsCollection)  //// ***
   
   
@@ -256,123 +256,129 @@ document.addEventListener("DOMContentLoaded", function(){  console.log("WE, ARE,
                     
                 }
                 
-                
-                
-                if (event.target.matches("h2")) {  
-                    
-                    
-                    //  ***  can also show it with a class name  *** //
-  
 
-                        // let h2Clicked = false ? == "yes" : "no"
-                        // let nameH2 = event.target  ==
-
-
-                    const nameH2 = event.target
-                        console.log(nameH2)
-                        console.log(nameH2.innerText)
-
-                    //       const nameH2prevState = event.target
-                    //       //  Hold a Copy of the "Previous State"😏🗃   //  ****
-                    //     console.log(nameH2.innerText)
-                
                   
-                    //     //nameEditForm = document.createElement()
+                
+                // let boolFormAlreadyDereOrNah = false
+                if (event.target.matches("h2") || event.target.matches(".edit-btn")) {  
                     
-                        const formForNameH2 = document.createElement("form")
-                              formForNameH2.innerHTML = `
-                      
-                                  Changing Name:
-                                  <form class="name-change-form">
+   
+
+                    const cardEditing = event.target.closest(".card")
+                    const cardEditingName = cardEditing.querySelector("h2").innerText
+                    console.log(cardEditingName)  //
                           
-                                  <h4>Name:</h4>
-                                  <input
-                                  type="text"
-                                  name="name"
-                                  value=""
-                                  placeholder={nameH2.innerText}
-                                  class="input-text"
-                                  />        
-                                  <br />
-                                  <input
-                                  type="submit"
-                                  name="submit"
-                                  value="Update Actor Name!!!!"
-                                  class="submit"
-                                  />
-                                  </form>
-      
-                                  `
-                             console.log(formForNameH2)
 
-                             const samsCard = document.getElementById(nameH2.dataset.id)
-                             //  const samsCard = document.getElementById(1)
-                             console.log(">>>>>>>>", samsCard)
-                // nameH2.document.querySelector
 
+                    // const nameH2 = event.target
+                    //     console.log(nameH2)
+                    //     console.log(nameH2.innerText)
+
+                    const editForm = document.createElement("form")
+                    editForm.innerHTML = `
+            
+                        <br><br>
+                        <h2>Editing This Actor - In index.js🏙:</h2>
+                        <form class="name-change-form">
+
+                        <br>
+                        <button class="close-button">✖️CLOSE✖️THE✖️EDIT✖️FORM✖️</button>
+                        <br>
+
+                        <h4>Name:</h4>
+                        <input
+                        type="text"
+                        name="name"
+                        value="${cardEditingName}"
+                        placeholder="${cardEditingName}"
+                        class="input-text-name"
+                        />        
+                          <br />
+                        <h4>Image URL:</h4>
+                        <input
+                        type="text"
+                        name="image"
+                        value=""
+                        placeholder=""
+                        class="input-text-image"
+                        />        
+                          <br />
+                        <input
+                        type="submit"
+                        name="submit"
+                        value="Update Actor Name!!!!"
+                        class="submit-button"
+                        />
+                        </form>
+                        <br><br><br><br>
+
+                        `
+                      console.log(editForm)  //
+
+                    cardEditing.append(editForm)
+                      console.log(">>>>>>>>", cardEditing)  //
+
+
+                    // EVENT LISTENER FOR:  CLOSE BUTTON ON POP-UP-EDIT FORM
+                    const closeButton = editForm.querySelector(".close-button")
+                          closeButton.addEventListener("click", (event)=>{
+                            console.log("✖️CLOSE✖️", event)
+
+                            editForm.remove()
+                            // THIS IS WHAT ACTUALLY REMOVES THE FORM
+
+                          })
+                        
+                    
+                    // EVENT LISTENER FOR:  SUMBIT BUTTON ON POP-UP-EDIT FORM
+                    editForm.addEventListener("click", (event)=>{  event.preventDefault();
+                      console.log("MAKE A CHANGE!💫✨")  //
+
+                        if(event.target.matches(".submit-button")){
+
+                          let updatedName = editForm.querySelector(".input-text-name").value
+                              console.log(updatedName)
+                          let updatedImage = editForm.querySelector(".input-text-image").value
+                              console.log(updatedImage)
+
+                          const bodyObj = {
+
+                            name: updatedName,
+                            image: updatedImage 
+
+                          }// Sending the New Name
+
+                            const cardEditingID = cardEditing.id
+                              console.log(cardEditingID)
+
+                          //     // // Make a PATCH/EDIT to   >  /actor/:id
+                          fetch(`${API_DATABASE_URL}/${cardEditingID}`, {
+                            method: "PATCH",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(bodyObj),
+                          })
+                          .then(r => r.json())
+                          .then(updatedActor => {  
+                              console.log("DID IT CHANGE????💻👀    ", updatedActor)
+
+                              cardEditing.querySelector("h2").innerText = updatedActor.name
+                              cardEditing.querySelector("img").src = updatedActor.image
+                          })
+                        }
+
+
+                    })
+
+                //  ***  can also show it with a class name  *** //
 
                 //  ***  EDIT A STATIC FORM  ***
 
                 ////  PUT AN EVENT LISTENER ON THE WHOLE FORM !!!!
-                
 
-
-
-                
-
-
-
-
-        //     //   // const pTagWithLikes = document.getElementById(id)  ***
-        //     // // const pTagWithLikes = event.target.previousElementSibling
-            
-    
-        //     // const likeCount = parseInt(pTagWithLikes.textContent)  // ***  parsInt  ***
-        //     //   // parsInt is like (.to_i) in (Ruby) 🙌
-        //     // const newLikes = likeCount + 1
-            
-     
-      
-        //     // // Make a PATCH/EDIT to   >  /toys/:id
-
-
-            let updatedName = event.target.name.value
-
-            const bodyObj = {
-    
-              name: updatedName
-    
-            } // Sending the New Name
-      
-    
-              const id = event.target.dataset.id
-    
-    
-              fetch(`${API_DATABASE_URL}/${id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(bodyObj),
-              })
-              .then(r => r.json())
-              .then(updatedToy => {
-    
-                console.log(updatedToy)
-                // pessimistic approach:
-                // pTagWithLikes.textContent = `${updatedToy.likes} Cheers`
-    
-              })
-              // Update the number of likes on the DOM
-              // Optimistic approach:
-              // pTagWithLikes.textContent = `${newLikes} Likes`
+                ////   ***   Show Ternary  ***  ////
             
         }
-        //else if(event.target.matches("form")){  console.log("OKAY WE'RE DONE! 😅")  }
-        // else if(event.target.matches("form")){  console.log("OKAY WE'RE DONE! 😅")  
-        
-        //     // nameH2 = nameH2prevState
-        
-        // }
-        ////   ***   Show Ternary  ***  ////
+
 
 
 
